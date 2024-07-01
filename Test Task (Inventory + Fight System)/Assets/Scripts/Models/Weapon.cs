@@ -17,8 +17,12 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Shot()
     {
-        if (_inventory.FindItem(_requiredAmmoID).GetType() == typeof(ItemDataBase))
+        Cell ammo = _inventory.FindItem(_requiredAmmoID);
+
+        if (ammo != null && ammo.Quantity > 0)
         {
+            ammo.Quantity -= _bulletDevreaseCount;
+            Debug.Log("Im shooting!");
         }
     }
 }

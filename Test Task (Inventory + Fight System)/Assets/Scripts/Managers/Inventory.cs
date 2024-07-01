@@ -20,13 +20,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public Item FindItem(int itemID)
+    public Cell FindItem(int itemID)
     {
         for (int i = 0; i < _inventoryCells.Length; i++)
         {
             if (_inventoryCells[i].ItemInCell.ID == itemID)
             {
-                return _inventoryCells[i].ItemInCell;
+                return _inventoryCells[i];
             }
         }
         return null;
