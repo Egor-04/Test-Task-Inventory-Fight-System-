@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour
 {
-    [SerializeField] private int _healthValue;
-    [SerializeField] private TMP_Text _healthText;
+    [SerializeField] protected int _healthValue;
+    [SerializeField] protected TMP_Text _healthText;
 
     protected abstract void TakeDamageToHead(int damageValue);
 

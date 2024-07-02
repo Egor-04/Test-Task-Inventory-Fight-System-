@@ -15,13 +15,15 @@ public abstract class Weapon : MonoBehaviour
         _inventory = FindObjectOfType<Inventory>();
     }
 
+    public int GetID() { return _id; }
+
     protected virtual void Shot()
     {
         Cell ammo = _inventory.FindItem(_requiredAmmoID);
 
-        if (ammo != null && ammo.Quantity > 0)
+        if (ammo != null && ammo.GetQuantity() > 0)
         {
-            ammo.Quantity -= _bulletDevreaseCount;
+            ammo.DecreaseQuantity(_bulletDevreaseCount);
             Debug.Log("Im shooting!");
         }
     }

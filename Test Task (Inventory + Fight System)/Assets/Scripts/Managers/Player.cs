@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Player : Health
 {
-    [SerializeField] private int _healthValue;
-
-    public void TakeDamage()
-    {
-
-    }
+    [SerializeField] private Cell _headEquipment;
 
     protected override void TakeDamageToBody(int damageValue)
     {
-        throw new System.NotImplementedException();
+        _healthValue -= damageValue;
+        _healthText.text = _healthValue.ToString();
     }
 
     protected override void TakeDamageToHead(int damageValue)

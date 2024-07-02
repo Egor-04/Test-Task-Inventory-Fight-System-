@@ -3,8 +3,8 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour
 {
     public static SelectionManager Instance { get; private set; }
-
-    private ISelectable currentSelected;
+    [SerializeField] private int _selectedWeaponNow;
+    [SerializeField] private SelectableWeapon _pistol, _rifle;
 
     private void Awake()
     {
@@ -14,21 +14,25 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    public void SelectItem(ISelectable selectable)
+    private void Start()
     {
-        if (currentSelected != null)
-        {
-            currentSelected.Deselect();
-        }
-        else
-        {
-            currentSelected = selectable;
-            currentSelected.Select();
-        }
+        SelectItem(1);
     }
 
-    public ISelectable GetCurrentSelectedItem()
+    public void SelectItem(int weaponID)
     {
-        return currentSelected;
+        _pistol.SelectDeselect(false);
+        _rifle.SelectDeselect(false);
+
+        if (weaponID == 1)
+        {
+            _pistol.SelectDeselect(true);
+            _selectedWeaponNow = weaponID;
+        }
+        else if (weaponID == 2)
+        {
+            _rifle.SelectDeselect(true);
+            _selectedWeaponNow = weaponID;
+        }
     }
 }

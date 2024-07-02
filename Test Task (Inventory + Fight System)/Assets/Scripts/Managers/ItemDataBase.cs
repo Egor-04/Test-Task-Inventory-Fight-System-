@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +9,15 @@ public class ItemDataBase : MonoBehaviour
     private void Awake()
     {
         _itemDictionary = new Dictionary<int, Item>();
-        foreach (Item item in _allItems)
+        for (int i = 0; i < _allItems.Length; i++)
         {
-            _itemDictionary.Add(item.ID, item);
+            _itemDictionary.Add(_allItems[i].ID, _allItems[i]);
         }
+    }
+
+    public int GetItemdataLength()
+    {
+        return _allItems.Length; 
     }
 
     public Item FindItem(int itemID)

@@ -4,44 +4,20 @@ using UnityEngine.EventSystems;
 
 public class SelectableWeapon : MonoBehaviour, ISelectable, IPointerClickHandler
 {
+    [SerializeField] private int _id;
     [SerializeField] private Image _mainImage;
     [SerializeField] private Sprite _selectedSprite;
-    [SerializeField] private Sprite _notSelectedSprite;
+    [SerializeField] private Sprite _deselectedSprite;
     [SerializeField] private Weapon _weapon;
 
     private bool isSelected;
 
-    private void Start()
+    private void Awake()
     {
         _mainImage = GetComponent<Image>();
     }
 
-    public void Select()
-    {
-        isSelected = true;
-        UpdateVisualState();
-    }
-
-    public void Deselect()
-    {
-        isSelected = false;
-        UpdateVisualState();
-    }
-
-    private void UpdateVisualState()
-    {
-        isSelected = true ? _mainImage.sprite = _selectedSprite : _mainImage.sprite = _notSelectedSprite;
-    }
-
-    public void OnClick()
-    {
-        SelectionManager.Instance.SelectItem(this);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        OnClick();
-    }
+    public bool GetState() { return isSelected ; }
 
     public Weapon GetWeapon()
     {
@@ -51,5 +27,26 @@ public class SelectableWeapon : MonoBehaviour, ISelectable, IPointerClickHandler
     public void SetWeapon(Weapon newWeapon)
     {
         _weapon = newWeapon;
+    }
+
+    private void UpdateVisualState()
+    {
+        _mainImage.sprite = isSelected ? _selectedSprite : _deselectedSprite;
+    }
+
+    public void OnClick()
+    {
+        SelectionManager.Instance.SelectItem(_id);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        OnClick();
+    }
+
+    public void SelectDeselect(bool state)
+    {
+        isSelected = state;
+        UpdateVisualState();
     }
 }
