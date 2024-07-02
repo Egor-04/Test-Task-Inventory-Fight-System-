@@ -21,23 +21,16 @@ public class DraggedItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         QuantityText.enabled = true;
     }
 
-    public void SetAsNull()
-    {
-        DraggedCell = GetComponent<Cell>();
-        Icon.sprite = null;
-        QuantityText.text = string.Empty;
-        QuantityText.enabled = false;
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         DraggedObject = gameObject;
         _inventory.DraggedItemPrefab.gameObject.SetActive(true);
-        _inventory.DraggedItemPrefab.GetComponent<CanvasGroup>().blocksRaycasts = false; 
+        _inventory.DraggedItemPrefab.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         if (TryGetComponent(out Cell cell) && cell.GetItemInCell() != null)
         {
             SetCellInfo(cell);
+            QuantityText.enabled = cell.GetItemInCell().CanStack ? true : false;
         }
         else
         {
