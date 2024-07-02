@@ -5,15 +5,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [Serializable]
-public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
+public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
-    [SerializeField] private int CurrentQuantity;
-    [SerializeField] private Image IconImage;
-    [SerializeField] private TMP_Text QuantityText;
-    [SerializeField] private Item ItemInCell;
-
-    [Header("Pop Up Window")]
-    [SerializeField] private GameObject _popUpPanel;
+    [SerializeField] private int _currentQuantity;
+    [SerializeField] private Image _iconImage;
+    [SerializeField] private TMP_Text _quantityText;
+    [SerializeField] private Item _itemInCell;
 
     [Header("Equipment Options Only")]
     [SerializeField] private EquipmentType _equipmentType;
@@ -26,20 +23,35 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
 
     private void Awake()
     {
-        IconImage = transform.GetChild(0).GetComponent<Image>();
-        QuantityText = transform.GetChild(1).GetComponent<TMP_Text>();
+        _iconImage = transform.GetChild(0).GetComponent<Image>();
+        _quantityText = transform.GetChild(1).GetComponent<TMP_Text>();
     }
 
-    public int GetQuantity() { return CurrentQuantity; }
+    public int GetQuantity() { return _currentQuantity; }
 
-    public Item GetItemInCell() { return ItemInCell; }
+    public Item GetItemInCell() { return _itemInCell; }
+
+    public void SetAsEmpty()
+    {
+        _itemInCell = null;
+        _currentQuantity = 0;
+        _iconImage.sprite = null;
+        _quantityText.text = 0.ToString();
+        _quantityText.enabled = false;
+
+        if (_armorValueText)
+        {
+            _armorValue = 0;
+            _armorValueText.text = _armorValue.ToString();
+        }
+    }
 
     public void SetCellParameters(Item item)
     {
-        ItemInCell = item;
-        CurrentQuantity = item.MaxQuantity;
-        IconImage.sprite = item.Icon;
-        QuantityText.text = CurrentQuantity.ToString();
+        _itemInCell = item;
+        _currentQuantity = item.MaxQuantity;
+        _iconImage.sprite = item.Icon;
+        _quantityText.text = _currentQuantity.ToString();
 
         if (item is Equipment equipment1 && _equipmentOnly == false)
         {
@@ -51,41 +63,27 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
             _armorValueText.text = equipment2.ArmorPoints.ToString();
         }
 
-        if (ItemInCell.CanStack)
+        if (_itemInCell.CanStack)
         {
-            QuantityText.enabled = true;
+            _quantityText.enabled = true;
         }
         else
         {
-            QuantityText.enabled = false;
-        }
-    }
-
-    public void SetAsEmpty()
-    {
-        ItemInCell = null;
-        CurrentQuantity = 0;
-        IconImage.sprite = null;
-        QuantityText.text = 0.ToString();
-        QuantityText.enabled = false;
-
-        if (_armorValueText)
-        {
-            _armorValue = 0;
-            _armorValueText.text = _armorValue.ToString();
+            _quantityText.enabled = false;
         }
     }
 
     public void DecreaseQuantity(int value)
     {
-        CurrentQuantity -= value;
-    }
-
-    public void OpenPopUpPanel()
-    {
-        if (ItemInCell != null && _popUpPanel != null)
+        if (_currentQuantity <= 0)
         {
-            _popUpPanel.SetActive(true);
+            _currentQuantity = 0;
+            _quantityText.text = _currentQuantity.ToString();
+        }
+        else
+        {
+            _currentQuantity -= value;
+            _quantityText.text = _currentQuantity.ToString();
         }
     }
 
@@ -101,54 +99,60 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
 
         if (_equipmentOnly)
         {
-            if (previousCellInfo.ItemInCell is Equipment equipment)
+            if (previousCellInfo._itemInCell is Equipment equipment)
             {
-                if (equipment.TypeOfEquipment == _equipmentType && ItemInCell == null)
+                if (equipment.TypeOfEquipment == _equipmentType && _itemInCell == null)
                 {
                     SetCellParameters(equipment);
                     previousCellInfo.SetAsEmpty();
                 }
                 else if (equipment.TypeOfEquipment == _equipmentType)
                 {
-                    _tempCell.SetCellParameters(ItemInCell);
-                    SetCellParameters(previousCellInfo.ItemInCell);
-                    previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
+                    _tempCell.SetCellParameters(_itemInCell);
+                    SetCellParameters(previousCellInfo._itemInCell);
+                    previousCellInfo.SetCellParameters(_tempCell._itemInCell);
                 }
             }
         }
         else
         {
-            if (ItemInCell == null && previousCellInfo.ItemInCell != null)
+            if (_itemInCell == null && previousCellInfo._itemInCell != null)
             {
-                SetCellParameters(previousCellInfo.ItemInCell);
+                SetCellParameters(previousCellInfo._itemInCell);
                 previousCellInfo.SetAsEmpty();
             }
             else
             {
                 if (previousCellInfo._equipmentOnly)
                 {
-                    if (previousCellInfo.ItemInCell is Equipment && previousCellInfo._equipmentType == _equipmentType)
+                    if (previousCellInfo._itemInCell is Equipment && previousCellInfo._equipmentType == _equipmentType)
                     {
-                        if (ItemInCell is Equipment)
+                        if (_itemInCell is Equipment)
                         {
-                            _tempCell.SetCellParameters(ItemInCell);
-                            SetCellParameters(previousCellInfo.ItemInCell);
-                            previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
+                            _tempCell.SetCellParameters(_itemInCell);
+                            SetCellParameters(previousCellInfo._itemInCell);
+                            previousCellInfo.SetCellParameters(_tempCell._itemInCell);
                         }
                     }
                 }
                 else
                 {
-                    _tempCell.SetCellParameters(ItemInCell);
-                    SetCellParameters(previousCellInfo.ItemInCell);
-                    previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
+                    if (previousCellInfo._itemInCell != null)
+                    {
+                        _tempCell.SetCellParameters(_itemInCell);
+                        SetCellParameters(previousCellInfo._itemInCell);
+                        previousCellInfo.SetCellParameters(_tempCell._itemInCell);
+                    }
                 }
             }
         }
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        OpenPopUpPanel();
+        if (_itemInCell != null)
+        {
+            EventManager.onCellClicked?.Invoke(this, _itemInCell);
+        }
     }
 }

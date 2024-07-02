@@ -1,18 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Health
 {
-    // Start is called before the first frame update
-    void Start()
+    public int Damage { get; private set; } = 15;
+    private int nextValue;
+    private bool isDead;
+
+    protected override void TakeDamageToHead(int damageValue)
     {
-        
+        _healthValue -= damageValue;
+        UpdateVisualInfo();
+    }
+    protected override void TakeDamageToBody(int damageValue)
+    {
+        _healthValue -= damageValue;
+        UpdateVisualInfo();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damageValue)
     {
-        
+        if (nextValue == 0)
+        {
+            nextValue = 1;
+            TakeDamageToHead(damageValue);
+        }
+        else
+        {
+            nextValue = 0;
+            TakeDamageToBody(damageValue);
+        }
+        CheckEnemyHealth();
     }
+
+    private void CheckEnemyHealth()
+    {
+        if (_healthValue <= 0)
+        {
+            _healthValue = 0;
+            isDead = true;
+            UpdateVisualInfo();
+        }
+    }
+
+    protected override void UpdateVisualInfo()
+    {
+        base.UpdateVisualInfo();
+    }
+
+    public bool IsDead() { return isDead; }
 }

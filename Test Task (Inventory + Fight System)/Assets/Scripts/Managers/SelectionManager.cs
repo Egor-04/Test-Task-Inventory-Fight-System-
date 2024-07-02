@@ -4,7 +4,8 @@ public class SelectionManager : MonoBehaviour
 {
     public static SelectionManager Instance { get; private set; }
     [SerializeField] private int _selectedWeaponNow;
-    [SerializeField] private SelectableWeapon _pistol, _rifle;
+    [SerializeField] private SelectableWeapon _pistolUI, _rifleUI;
+    [SerializeField] private Weapon _pistol, _rifle;
 
     private void Awake()
     {
@@ -19,19 +20,21 @@ public class SelectionManager : MonoBehaviour
         SelectItem(1);
     }
 
+    public Weapon GetSelectedWeapon() { return _selectedWeaponNow == 1 ? _pistol : _rifle; }
+
     public void SelectItem(int weaponID)
     {
-        _pistol.SelectDeselect(false);
-        _rifle.SelectDeselect(false);
+        _pistolUI.SelectDeselect(false);
+        _rifleUI.SelectDeselect(false);
 
         if (weaponID == 1)
         {
-            _pistol.SelectDeselect(true);
+            _pistolUI.SelectDeselect(true);
             _selectedWeaponNow = weaponID;
         }
         else if (weaponID == 2)
         {
-            _rifle.SelectDeselect(true);
+            _rifleUI.SelectDeselect(true);
             _selectedWeaponNow = weaponID;
         }
     }

@@ -2,13 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SelectableWeapon : MonoBehaviour, ISelectable, IPointerClickHandler
+public class SelectableWeapon : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private int _id;
     [SerializeField] private Image _mainImage;
     [SerializeField] private Sprite _selectedSprite;
     [SerializeField] private Sprite _deselectedSprite;
-    [SerializeField] private Weapon _weapon;
 
     private bool isSelected;
 
@@ -18,16 +17,6 @@ public class SelectableWeapon : MonoBehaviour, ISelectable, IPointerClickHandler
     }
 
     public bool GetState() { return isSelected ; }
-
-    public Weapon GetWeapon()
-    {
-        return _weapon;
-    }
-
-    public void SetWeapon(Weapon newWeapon)
-    {
-        _weapon = newWeapon;
-    }
 
     private void UpdateVisualState()
     {
