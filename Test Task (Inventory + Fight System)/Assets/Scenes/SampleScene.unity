@@ -343,6 +343,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &65902694
@@ -533,6 +535,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &95840793
@@ -979,6 +983,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &172984824
@@ -1094,6 +1100,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &188802480
@@ -1455,6 +1463,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &197662204
@@ -1876,6 +1886,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &215385718
@@ -1953,6 +1965,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &216416133
@@ -2068,6 +2082,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &221582264
@@ -2738,6 +2754,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 802150612}
   _equipmentOnly: 1
   _tempCell: {fileID: 1467041966}
 --- !u!114 &274727652
@@ -3164,6 +3182,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &348197895
@@ -3535,6 +3555,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &427770184
@@ -3650,6 +3672,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &472209943
@@ -4998,6 +5022,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &716421970
@@ -5113,6 +5139,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &722159708
@@ -6156,6 +6184,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &865290861
@@ -6346,6 +6376,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &871412554
@@ -6461,6 +6493,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &906887424
@@ -6609,6 +6643,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &917391120
@@ -7443,6 +7479,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1087416061
@@ -7692,6 +7730,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1092287528
@@ -8889,6 +8929,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1354364981
@@ -9056,6 +9098,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1379424227
@@ -9299,6 +9343,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 1
+  _armorValue: 0
+  _armorValueText: {fileID: 1117315578}
   _equipmentOnly: 1
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1419249975
@@ -9930,6 +9976,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 0}
 --- !u!1 &1467086829
@@ -10081,6 +10129,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1472887419
@@ -10196,6 +10246,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1488460196
@@ -11073,6 +11125,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1650019517
@@ -11188,6 +11242,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1651898385
@@ -11303,6 +11359,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1653740205
@@ -11843,6 +11901,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1690102348
@@ -12450,6 +12510,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1717089432
@@ -13638,6 +13700,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1907307824
@@ -13753,6 +13817,8 @@ MonoBehaviour:
   ItemInCell: {fileID: 0}
   _popUpPanel: {fileID: 0}
   _equipmentType: 0
+  _armorValue: 0
+  _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
 --- !u!114 &1958147012

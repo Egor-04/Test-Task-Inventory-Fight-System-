@@ -17,6 +17,8 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
 
     [Header("Equipment Options Only")]
     [SerializeField] private EquipmentType _equipmentType;
+    [SerializeField] private int _armorValue;
+    [SerializeField] private TMP_Text _armorValueText;
     [SerializeField] private bool _equipmentOnly;
 
     [Header("Temp Cell")]
@@ -39,9 +41,14 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
         IconImage.sprite = item.Icon;
         QuantityText.text = CurrentQuantity.ToString();
 
-        if (item is Equipment equipment && _equipmentOnly == false)
+        if (item is Equipment equipment1 && _equipmentOnly == false)
         {
-            _equipmentType = equipment.TypeOfEquipment;
+            _equipmentType = equipment1.TypeOfEquipment;
+        }
+        else if (item is Equipment equipment2 && _equipmentOnly)
+        {
+            _armorValue = equipment2.ArmorPoints;
+            _armorValueText.text = equipment2.ArmorPoints.ToString();
         }
 
         if (ItemInCell.CanStack)
@@ -61,6 +68,12 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
         IconImage.sprite = null;
         QuantityText.text = 0.ToString();
         QuantityText.enabled = false;
+
+        if (_armorValueText)
+        {
+            _armorValue = 0;
+            _armorValueText.text = _armorValue.ToString();
+        }
     }
 
     public void DecreaseQuantity(int value)
@@ -118,7 +131,6 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
                     {
                         if (ItemInCell is Equipment)
                         {
-                            Debug.Log("AAAAAAAAAAAAAAAAA");
                             _tempCell.SetCellParameters(ItemInCell);
                             SetCellParameters(previousCellInfo.ItemInCell);
                             previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
@@ -127,7 +139,6 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
                 }
                 else
                 {
-                    Debug.Log("BBBBBBBBBBBBBBBBB");
                     _tempCell.SetCellParameters(ItemInCell);
                     SetCellParameters(previousCellInfo.ItemInCell);
                     previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
