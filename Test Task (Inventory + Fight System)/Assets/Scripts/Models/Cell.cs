@@ -39,7 +39,7 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
         IconImage.sprite = item.Icon;
         QuantityText.text = CurrentQuantity.ToString();
 
-        if (item is Equipment equipment)
+        if (item is Equipment equipment && _equipmentOnly == false)
         {
             _equipmentType = equipment.TypeOfEquipment;
         }
@@ -93,8 +93,9 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
                 if (equipment.TypeOfEquipment == _equipmentType && ItemInCell == null)
                 {
                     SetCellParameters(equipment);
+                    previousCellInfo.SetAsEmpty();
                 }
-                else
+                else if (equipment.TypeOfEquipment == _equipmentType)
                 {
                     _tempCell.SetCellParameters(ItemInCell);
                     SetCellParameters(previousCellInfo.ItemInCell);
@@ -111,9 +112,26 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerUpHandler
             }
             else
             {
-                _tempCell.SetCellParameters(ItemInCell);
-                SetCellParameters(previousCellInfo.ItemInCell);
-                previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
+                if (previousCellInfo._equipmentOnly)
+                {
+                    if (previousCellInfo.ItemInCell is Equipment && previousCellInfo._equipmentType == _equipmentType)
+                    {
+                        if (ItemInCell is Equipment)
+                        {
+                            Debug.Log("AAAAAAAAAAAAAAAAA");
+                            _tempCell.SetCellParameters(ItemInCell);
+                            SetCellParameters(previousCellInfo.ItemInCell);
+                            previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Log("BBBBBBBBBBBBBBBBB");
+                    _tempCell.SetCellParameters(ItemInCell);
+                    SetCellParameters(previousCellInfo.ItemInCell);
+                    previousCellInfo.SetCellParameters(_tempCell.ItemInCell);
+                }
             }
         }
     }
