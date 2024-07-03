@@ -21,6 +21,9 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
     [Header("Temp Cell")]
     [SerializeField] private Cell _tempCell;
 
+    [Header("Equipment Cells")]
+    [SerializeField] private Cell _headCell, _bodyCell;
+
     private void Awake()
     {
         _iconImage = transform.GetChild(0).GetComponent<Image>();
@@ -77,7 +80,7 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         _itemInCell = cell._itemInCell;
         _currentQuantity = cell._currentQuantity;
-        _iconImage.sprite = cell._itemInCell.Icon;
+        _iconImage.sprite = cell._iconImage.sprite;
         _quantityText.text = _currentQuantity.ToString();
 
         if (cell._itemInCell is Equipment equipment1 && _equipmentOnly == false)
@@ -116,7 +119,16 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
                 }
             case Equipment equipment:
                 {
-
+                    if (equipment.TypeOfEquipment == EquipmentType.Head)
+                    {
+                        Debug.Log("1");
+                        ReplaceItemToOtherCell(this, _headCell);
+                    }
+                    else
+                    {
+                        Debug.Log("1");
+                        ReplaceItemToOtherCell(this, _bodyCell);
+                    }
                     break;
                 }
         }
@@ -150,6 +162,25 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
             {
                 kit.Use();
             }
+        }
+    }
+
+    private void ReplaceItemToOtherCell(Cell cell1, Cell cell2)
+    {
+        if (cell2._itemInCell == null)
+        {
+            cell2.SetCellParameters(cell1);
+            cell1.SetAsEmpty();
+
+        }
+        else
+        {
+            Debug.Log("До: " + cell1._itemInCell + " || " + cell2._itemInCell + " || " + _tempCell._itemInCell);
+            _tempCell.SetCellParameters(cell1);
+            cell1.SetCellParameters(cell2);
+            cell2.SetCellParameters(_tempCell);
+
+            Debug.Log("После: " + cell1._itemInCell + " || " + cell2._itemInCell + " || " + _tempCell._itemInCell);
         }
     }
 
@@ -218,7 +249,10 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         if (_itemInCell != null)
         {
-            EventManager.onCellClicked?.Invoke(this, _itemInCell);
+            if (_equipmentOnly == false)
+            {
+                EventManager.onCellClicked?.Invoke(this, _itemInCell);
+            }
         }
     }
 }

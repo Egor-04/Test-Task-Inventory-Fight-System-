@@ -519,6 +519,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &65902694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,6 +978,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &95840793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,6 +1502,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &172984824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,6 +1753,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &188802480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,6 +2117,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &197662204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,6 +2541,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &215385718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,6 +2621,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &216416133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,6 +2739,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &221582264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3396,6 +3412,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 802150612}
   _equipmentOnly: 1
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 0}
+  _bodyCell: {fileID: 0}
 --- !u!114 &274727652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,6 +3840,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &348197895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4328,6 +4348,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &427770184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4444,6 +4466,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &472209943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5568,7 +5592,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 613535146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1882824166}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &613535146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5954,6 +5990,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &716421970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6070,6 +6108,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &722159708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7114,6 +7154,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &865290861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7305,6 +7347,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &871412554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7421,6 +7465,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &906887424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7570,6 +7616,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &917391120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8557,6 +8605,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1087416061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8807,6 +8857,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1092287528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9184,7 +9236,6 @@ MonoBehaviour:
   _ammoButton: {fileID: 1251469535}
   _medicineButton: {fileID: 94497882}
   _equipmentButton: {fileID: 613535145}
-  _cell: {fileID: 0}
 --- !u!1 &1187392563
 GameObject:
   m_ObjectHideFlags: 0
@@ -10452,6 +10503,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1354364981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10620,6 +10673,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1379424227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10998,6 +11053,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 1117315578}
   _equipmentOnly: 1
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 0}
+  _bodyCell: {fileID: 0}
 --- !u!114 &1419249975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11629,6 +11686,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 0}
+  _headCell: {fileID: 0}
+  _bodyCell: {fileID: 0}
 --- !u!1 &1467086829
 GameObject:
   m_ObjectHideFlags: 0
@@ -11781,6 +11840,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1472887419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11897,6 +11958,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1488460196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13061,6 +13124,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1650019517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13177,6 +13242,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1651898385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13293,6 +13360,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1653740205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14101,6 +14170,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1690102348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14709,6 +14780,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1717089432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16174,6 +16247,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1907307824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16335,6 +16410,8 @@ MonoBehaviour:
   _armorValueText: {fileID: 0}
   _equipmentOnly: 0
   _tempCell: {fileID: 1467041966}
+  _headCell: {fileID: 274727651}
+  _bodyCell: {fileID: 1419249974}
 --- !u!114 &1958147012
 MonoBehaviour:
   m_ObjectHideFlags: 0
