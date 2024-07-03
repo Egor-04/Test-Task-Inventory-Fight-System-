@@ -65,10 +65,10 @@ public class Player : Health
     {
         if (_healthValue <= 0)
         {
+            EventManager.onPlayerDie?.Invoke();
             _healthValue = 0;
             isDead = true;
             UpdateVisualInfo();
-            //_uiManager.GameOver();
         }
     }
 

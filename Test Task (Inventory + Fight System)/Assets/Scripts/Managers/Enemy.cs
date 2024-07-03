@@ -36,6 +36,7 @@ public class Enemy : Health
     {
         if (_healthValue <= 0)
         {
+            EventManager.onEnemyDie?.Invoke();
             _healthValue = 0;
             isDead = true;
             UpdateVisualInfo();

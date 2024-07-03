@@ -16,11 +16,13 @@ public class Inventory : MonoBehaviour
 
     public void OnEnable()
     {
+        EventManager.onEnemyDie += AddRandomItem;
         EventManager.onCellClicked += OpenPopUpPanel;
     }
 
     public void OnDisable()
     {
+        EventManager.onEnemyDie -= AddRandomItem;
         EventManager.onCellClicked -= OpenPopUpPanel;
     }
 
