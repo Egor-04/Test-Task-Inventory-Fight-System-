@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
             Item foundItem = _allItemsData.FindItem(i+1);
             if (_inventoryCells[i].GetItemInCell() == null)
             {
-                _inventoryCells[i].SetCellParameters(foundItem);
+                _inventoryCells[i].SetNewItemToCell(foundItem);
             }
         }
     }
@@ -50,7 +50,7 @@ public class Inventory : MonoBehaviour
             if (_inventoryCells[j] != null && _inventoryCells[j].GetItemInCell() == null)
             {
                 Item foundItem = _allItemsData.FindItem(Random.Range(1, _allItemsData.GetItemdataLength() + 1));
-                _inventoryCells[j].SetCellParameters(foundItem);
+                _inventoryCells[j].SetNewItemToCell(foundItem);
                 break;
             }
         }

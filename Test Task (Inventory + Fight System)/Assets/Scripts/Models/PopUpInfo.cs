@@ -13,12 +13,14 @@ public class PopUpInfo : MonoBehaviour
     [SerializeField] private Image _defaultPropertyImage;
     [SerializeField] private Sprite _ammoSprite, _medicineSprite, _equipmentSprite;
     [SerializeField] private Button _ammoButton, _medicineButton, _equipmentButton;
-    [SerializeField] private Cell _cell;
+    private Cell _cell;
+    private Item _item;
 
     public void SetInfo(Cell cell, Item item)
     {
         _popUpWindow.SetActive(true);
         _cell = cell;
+        _item = item;
 
         switch (item)
         {
@@ -60,24 +62,7 @@ public class PopUpInfo : MonoBehaviour
 
     public void DoAction()
     {
-        switch (_cell.GetItemInCell())
-        {
-            case Ammo ammo:
-                {
-                    Debug.Log("A");
-                    break;
-                }
-            case FirstAidKit kit:
-                {
-                    Debug.Log("B");
-                    break;
-                }
-            case Equipment equipment:
-                {
-                    Debug.Log("C");
-                    break;
-                }
-        }
+        _cell.UseItem(_item);
     }
 
     public void DeleteItem()

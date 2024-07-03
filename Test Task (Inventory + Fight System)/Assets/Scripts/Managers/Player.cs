@@ -6,6 +6,16 @@ public class Player : Health
     private int nextValue;
     private bool isDead;
 
+    private void OnEnable()
+    {
+        EventManager.onPlayerHeal += AddHealth;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.onPlayerHeal -= AddHealth;
+    }
+
     protected override void TakeDamageToHead(int damageValue)
     {
         if (_headEquipment.GetItemInCell() is Equipment headArmor)
@@ -44,6 +54,12 @@ public class Player : Health
     public void AddHealth(int healPoints)
     {
         _healthValue += healPoints;
+
+        if (_healthValue >= 100)
+        {
+            _healthValue = 100;
+        }
+
         UpdateVisualInfo();
     }
 
