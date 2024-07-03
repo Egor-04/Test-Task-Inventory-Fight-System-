@@ -8,6 +8,8 @@ public abstract class Health : MonoBehaviour
     [SerializeField] protected TMP_Text _healthText;
     [SerializeField] protected Slider _healthBar;
 
+    public virtual int GetHealth() { return _healthValue; }
+
     protected abstract void TakeDamageToHead(int damageValue);
 
     protected abstract void TakeDamageToBody(int damageValue);

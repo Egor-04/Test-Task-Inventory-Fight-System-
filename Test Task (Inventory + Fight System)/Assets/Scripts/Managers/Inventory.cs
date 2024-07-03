@@ -8,9 +8,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Cell[] _inventoryCells;
     private int j = 0;
 
-    private void Start()
+    private void Awake()
     {
         _allItemsData = FindObjectOfType<ItemDataBase>();
+    }
+
+    private void Start()
+    {
         AddStartItemsToInventory();
     }
 
@@ -51,6 +55,19 @@ public class Inventory : MonoBehaviour
             {
                 Item foundItem = _allItemsData.FindItem(Random.Range(1, _allItemsData.GetItemdataLength() + 1));
                 _inventoryCells[j].SetNewItemToCell(foundItem);
+                break;
+            }
+        }
+    }
+
+    public void AddCustomItem(int id, int quantity)
+    {
+        for (int j = 0; j < _inventoryCells.Length; j++)
+        {
+            if (_inventoryCells[j] != null && _inventoryCells[j].GetItemInCell() == null)
+            {
+                Item foundItem = _allItemsData.FindItem(id);
+                _inventoryCells[j].SetNewItemToCell(foundItem, quantity);
                 break;
             }
         }

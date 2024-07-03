@@ -49,6 +49,13 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
         }
     }
 
+    public void SetNewItemToCell(Item item, int customQuantity)
+    {
+        SetNewItemToCell(item);
+        _currentQuantity = customQuantity;
+        _quantityText.text = _currentQuantity.ToString();
+    }
+
     public void SetNewItemToCell(Item item)
     {
         _itemInCell = item;
@@ -61,33 +68,6 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
             _equipmentType = equipment1.TypeOfEquipment;
         }
         else if (item is Equipment equipment2 && _equipmentOnly)
-        {
-            _armorValue = equipment2.ArmorPoints;
-            _armorValueText.text = equipment2.ArmorPoints.ToString();
-        }
-
-        if (_itemInCell.CanStack)
-        {
-            _quantityText.enabled = true;
-        }
-        else
-        {
-            _quantityText.enabled = false;
-        }
-    }
-
-    public void SetCellParameters(Cell cell)
-    {
-        _itemInCell = cell._itemInCell;
-        _currentQuantity = cell._currentQuantity;
-        _iconImage.sprite = cell._iconImage.sprite;
-        _quantityText.text = _currentQuantity.ToString();
-
-        if (cell._itemInCell is Equipment equipment1 && _equipmentOnly == false)
-        {
-            _equipmentType = equipment1.TypeOfEquipment;
-        }
-        else if (cell._itemInCell is Equipment equipment2 && _equipmentOnly)
         {
             _armorValue = equipment2.ArmorPoints;
             _armorValueText.text = equipment2.ArmorPoints.ToString();
@@ -121,12 +101,10 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
                 {
                     if (equipment.TypeOfEquipment == EquipmentType.Head)
                     {
-                        Debug.Log("1");
                         ReplaceItemToOtherCell(this, _headCell);
                     }
                     else
                     {
-                        Debug.Log("1");
                         ReplaceItemToOtherCell(this, _bodyCell);
                     }
                     break;
@@ -169,18 +147,14 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         if (cell2._itemInCell == null)
         {
-            cell2.SetCellParameters(cell1);
+            cell2.SetNewItemToCell(cell1._itemInCell, _currentQuantity);
             cell1.SetAsEmpty();
-
         }
         else
         {
-            Debug.Log("До: " + cell1._itemInCell + " || " + cell2._itemInCell + " || " + _tempCell._itemInCell);
-            _tempCell.SetCellParameters(cell1);
-            cell1.SetCellParameters(cell2);
-            cell2.SetCellParameters(_tempCell);
-
-            Debug.Log("После: " + cell1._itemInCell + " || " + cell2._itemInCell + " || " + _tempCell._itemInCell);
+            _tempCell.SetNewItemToCell(cell1._itemInCell, cell1._currentQuantity);
+            cell1.SetNewItemToCell(cell2._itemInCell, cell2._currentQuantity);
+            cell2.SetNewItemToCell(_tempCell._itemInCell, _tempCell._currentQuantity);
         }
     }
 
@@ -200,14 +174,14 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
             {
                 if (equipment.TypeOfEquipment == _equipmentType && _itemInCell == null)
                 {
-                    SetCellParameters(previousCellInfo);
+                    SetNewItemToCell(previousCellInfo._itemInCell, previousCellInfo._currentQuantity);
                     previousCellInfo.SetAsEmpty();
                 }
                 else if (equipment.TypeOfEquipment == _equipmentType)
                 {
-                    _tempCell.SetCellParameters(this);
-                    SetCellParameters(previousCellInfo);
-                    previousCellInfo.SetCellParameters(_tempCell);
+                    _tempCell.SetNewItemToCell(_itemInCell, _currentQuantity);
+                    SetNewItemToCell(previousCellInfo._itemInCell, previousCellInfo._currentQuantity);
+                    previousCellInfo.SetNewItemToCell(_tempCell._itemInCell, _tempCell._currentQuantity);
                 }
             }
         }
@@ -215,7 +189,7 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
         {
             if (_itemInCell == null && previousCellInfo._itemInCell != null)
             {
-                SetCellParameters(previousCellInfo);
+                SetNewItemToCell(previousCellInfo._itemInCell, previousCellInfo._currentQuantity);
                 previousCellInfo.SetAsEmpty();
             }
             else
@@ -226,9 +200,9 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
                     {
                         if (_itemInCell is Equipment)
                         {
-                            _tempCell.SetCellParameters(this);
-                            SetCellParameters(previousCellInfo);
-                            previousCellInfo.SetCellParameters(_tempCell);
+                            _tempCell.SetNewItemToCell(_itemInCell, _currentQuantity);
+                            SetNewItemToCell(previousCellInfo._itemInCell, previousCellInfo._currentQuantity);
+                            previousCellInfo.SetNewItemToCell(_tempCell._itemInCell, _tempCell._currentQuantity);
                         }
                     }
                 }
@@ -236,9 +210,9 @@ public class Cell : MonoBehaviour, IDropHandler, IPointerClickHandler
                 {
                     if (previousCellInfo._itemInCell != null)
                     {
-                        _tempCell.SetCellParameters(this);
-                        SetCellParameters(previousCellInfo);
-                        previousCellInfo.SetCellParameters(_tempCell);
+                        _tempCell.SetNewItemToCell(_itemInCell, _currentQuantity);
+                        SetNewItemToCell(previousCellInfo._itemInCell, previousCellInfo._currentQuantity);
+                        previousCellInfo.SetNewItemToCell(_tempCell._itemInCell, _tempCell._currentQuantity);
                     }
                 }
             }

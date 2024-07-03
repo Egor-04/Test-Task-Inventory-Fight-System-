@@ -16,6 +16,13 @@ public class Player : Health
         EventManager.onPlayerHeal -= AddHealth;
     }
 
+    public bool IsDead() { return isDead; }
+
+    public override int GetHealth()
+    {
+        return base.GetHealth();
+    }
+
     protected override void TakeDamageToHead(int damageValue)
     {
         if (_headEquipment.GetItemInCell() is Equipment headArmor)
@@ -93,5 +100,19 @@ public class Player : Health
         base.UpdateVisualInfo();
     }
 
-    public bool IsDead() { return isDead; }
+    public void SetPlayerData(PlayerData playerData)
+    {
+        _healthValue = playerData.Health;
+        isDead = playerData.IsDead;
+        UpdateVisualInfo();
+    }
+
+    public PlayerData GetPlayerData()
+    {
+        return new PlayerData()
+        {
+            Health = _healthValue,
+            IsDead = isDead
+        };
+    }
 }

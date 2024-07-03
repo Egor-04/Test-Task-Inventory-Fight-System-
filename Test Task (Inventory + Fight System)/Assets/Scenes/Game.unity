@@ -344,6 +344,7 @@ MonoBehaviour:
   Name: Ammo 9x18mm
   Icon: {fileID: 21300000, guid: ef0642ad1ae93714498552d21bebd011, type: 3}
   MaxQuantity: 50
+  CurrentQuantity: 0
   Weight: 0.01
   CanStack: 1
   Caliber: 9x18mm
@@ -6615,6 +6616,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748135355}
   m_CullTransparentMesh: 1
+--- !u!1 &792503875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 792503877}
+  - component: {fileID: 792503876}
+  m_Layer: 0
+  m_Name: SAVE LOAD MANAGER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &792503876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792503875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92527fa19f277b408d0b643c89827bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 947265532}
+  _enemy: {fileID: 1720247486}
+  _inventory: {fileID: 1235049348}
+  _cells:
+  - {fileID: 215385717}
+  - {fileID: 1087416060}
+  - {fileID: 1717089431}
+  - {fileID: 172984823}
+  - {fileID: 348197894}
+  - {fileID: 716421969}
+  - {fileID: 1958147011}
+  - {fileID: 1092287527}
+  - {fileID: 865290860}
+  - {fileID: 1354364980}
+  - {fileID: 95840792}
+  - {fileID: 427770183}
+  - {fileID: 1650019516}
+  - {fileID: 1488460195}
+  - {fileID: 917391119}
+  - {fileID: 1907307823}
+  - {fileID: 221582263}
+  - {fileID: 65902693}
+  - {fileID: 188802479}
+  - {fileID: 1653740204}
+  - {fileID: 906887423}
+  - {fileID: 216416132}
+  - {fileID: 1651898384}
+  - {fileID: 1690102347}
+  - {fileID: 1472887418}
+  - {fileID: 472209942}
+  - {fileID: 1379424226}
+  - {fileID: 722159707}
+  - {fileID: 197662203}
+  - {fileID: 871412553}
+  - {fileID: 274727651}
+  - {fileID: 1419249974}
+--- !u!4 &792503877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792503875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 494.60553, y: 597.0097, z: -7.7077484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802150610
 GameObject:
   m_ObjectHideFlags: 0
@@ -9229,6 +9310,7 @@ MonoBehaviour:
   _icon: {fileID: 1495154332}
   _textNameItem: {fileID: 2043279047}
   _itemPropertyText: {fileID: 1290181479}
+  _itemWeightText: {fileID: 1389747853}
   _defaultPropertyImage: {fileID: 2102513815}
   _ammoSprite: {fileID: 21300000, guid: 77a6442b0bc54294fb3fdb73c396be12, type: 3}
   _medicineSprite: {fileID: 21300000, guid: df22a9f98cbc89944a78c7810074cf01, type: 3}
@@ -10437,6 +10519,7 @@ MonoBehaviour:
   Name: Cap
   Icon: {fileID: 21300000, guid: 284d0a7821e154d47878c97e7a3920ce, type: 3}
   MaxQuantity: 1
+  CurrentQuantity: 0
   Weight: 0.1
   CanStack: 0
   TypeOfEquipment: 0
@@ -10607,6 +10690,7 @@ MonoBehaviour:
   Name: Helmet
   Icon: {fileID: 21300000, guid: 9ed4f065e8535214385626acac6675bd, type: 3}
   MaxQuantity: 1
+  CurrentQuantity: 0
   Weight: 1
   CanStack: 0
   TypeOfEquipment: 0
@@ -10911,6 +10995,7 @@ MonoBehaviour:
   Name: Jacket
   Icon: {fileID: 21300000, guid: 3428327debf19c94e8d58e428a77c482, type: 3}
   MaxQuantity: 1
+  CurrentQuantity: 0
   Weight: 1
   CanStack: 0
   TypeOfEquipment: 1
@@ -11328,6 +11413,7 @@ MonoBehaviour:
   Name: Body Armor
   Icon: {fileID: 21300000, guid: bf452c836911c5144977eff41c2c92e3, type: 3}
   MaxQuantity: 1
+  CurrentQuantity: 0
   Weight: 10
   CanStack: 0
   TypeOfEquipment: 1
@@ -15334,6 +15420,7 @@ MonoBehaviour:
   Name: First Aid Kit
   Icon: {fileID: 21300000, guid: 162f22e86f1e3fc43a64477008f90a6c, type: 3}
   MaxQuantity: 6
+  CurrentQuantity: 0
   Weight: 1
   CanStack: 1
   Healpoints: 50
@@ -16648,6 +16735,7 @@ MonoBehaviour:
   Name: Ammo 5.45x39mm
   Icon: {fileID: 21300000, guid: 733d1494d354df149ad71ded28903563, type: 3}
   MaxQuantity: 100
+  CurrentQuantity: 0
   Weight: 0.03
   CanStack: 1
   Caliber: 5.45x39mm
@@ -17882,3 +17970,4 @@ SceneRoots:
   - {fileID: 1162395687}
   - {fileID: 1288549009}
   - {fileID: 1937514131}
+  - {fileID: 792503877}

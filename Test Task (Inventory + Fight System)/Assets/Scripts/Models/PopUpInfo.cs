@@ -10,6 +10,7 @@ public class PopUpInfo : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _textNameItem;
     [SerializeField] private TMP_Text _itemPropertyText;
+    [SerializeField] private TMP_Text _itemWeightText;
     [SerializeField] private Image _defaultPropertyImage;
     [SerializeField] private Sprite _ammoSprite, _medicineSprite, _equipmentSprite;
     [SerializeField] private Button _ammoButton, _medicineButton, _equipmentButton;
@@ -33,33 +34,33 @@ public class PopUpInfo : MonoBehaviour
         {
             case Ammo ammo:
                 {
-                    Debug.Log("AAAAAAAAAAAAAAA");
                     _icon.sprite = ammo.Icon;
                     _textNameItem.text = ammo.Name;
                     _defaultPropertyImage.sprite = _ammoSprite;
                     _itemPropertyText.text = "+" + ammo.MaxQuantity;
+                    _itemWeightText.text = ammo.Weight + "Í„";
                     _ammoButton.gameObject.SetActive(true);
                     _medicineButton.gameObject.SetActive(false);
                     _equipmentButton.gameObject.SetActive(false); break;
                 }
             case FirstAidKit kit:
                 {
-                    Debug.Log("BBBBBBBBBBBBBBBBBBBBBBBBB");
                     _icon.sprite = kit.Icon;
                     _textNameItem.text = kit.Name;
                     _defaultPropertyImage.sprite = _medicineSprite;
                     _itemPropertyText.text = "+" + kit.Healpoints;
+                    _itemWeightText.text = kit.Weight + "Í„";
                     _ammoButton.gameObject.SetActive(false);
                     _medicineButton.gameObject.SetActive(true);
                     _equipmentButton.gameObject.SetActive(false); break;
                 }
             case Equipment equipment:
                 {
-                    Debug.Log("CCCCCCCCCCCCCCCCCCCCCCCCCCCC");
                     _icon.sprite = equipment.Icon;
                     _textNameItem.text = equipment.Name;
                     _defaultPropertyImage.sprite = _equipmentSprite;
                     _itemPropertyText.text = "+" + equipment.ArmorPoints;
+                    _itemWeightText.text = equipment.Weight + "Í„";
                     _ammoButton.gameObject.SetActive(false);
                     _medicineButton.gameObject.SetActive(false);
                     _equipmentButton.gameObject.SetActive(true); break;
@@ -69,8 +70,8 @@ public class PopUpInfo : MonoBehaviour
 
     public void DoAction()
     {
-        Debug.Log(_item.Name);
         _cell.UseItem(_item);
+        EventManager.onGameWasChanged?.Invoke();
     }
 
     public void DeleteItem()

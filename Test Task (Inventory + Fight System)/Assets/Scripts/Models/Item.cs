@@ -9,6 +9,7 @@ public class Item : MonoBehaviour, IUsable
     public Sprite Icon;
 
     public int MaxQuantity;
+    public int CurrentQuantity;
     public float Weight;
     public bool CanStack;
 

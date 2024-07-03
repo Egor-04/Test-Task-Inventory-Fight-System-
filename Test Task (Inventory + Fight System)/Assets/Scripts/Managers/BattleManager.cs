@@ -29,5 +29,7 @@ public class BattleManager : MonoBehaviour
             _currentMove = 0;
             _player.TakeDamage(_enemy.Damage);
         }
+
+        EventManager.onGameWasChanged?.Invoke();
     }
 }

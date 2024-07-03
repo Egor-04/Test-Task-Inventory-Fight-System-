@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Enemy : Health
 {
     public int Damage { get; private set; } = 15;
@@ -49,4 +47,24 @@ public class Enemy : Health
     }
 
     public bool IsDead() { return isDead; }
+
+    public override int GetHealth()
+    {
+        return base.GetHealth();
+    }
+    public void SetEnemyData(EnemyData playerData)
+    {
+        _healthValue = playerData.EnemyHealth;
+        isDead = playerData.IsDead;
+        UpdateVisualInfo();
+    }
+
+    public EnemyData GetEnemyData()
+    {
+        return new EnemyData()
+        {
+            EnemyHealth = _healthValue,
+            IsDead = isDead
+        };
+    }
 }
